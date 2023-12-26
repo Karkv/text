@@ -19,6 +19,9 @@ const viewAlert=(message,type)=>{
     message:message,
     type:type
   })
+  setTimeout(()=>{
+    setAlert(null);
+  },3000)
 };
 
 

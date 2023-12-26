@@ -8,7 +8,7 @@ export default function Text(props) {
     // console.log("Uppercase was clicked")
     let nex = text.toUpperCase();
     settext(nex);
-    props.viewAlert("Converted to lowercase!","success");
+    props.viewAlert("Converted to Uppercase!","success");
   };
   const handleclearText = () => {
     // console.log("Uppercase was clicked")

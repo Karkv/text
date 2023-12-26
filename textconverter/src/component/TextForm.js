@@ -8,19 +8,23 @@ export default function Text(props) {
     // console.log("Uppercase was clicked")
     let nex = text.toUpperCase();
     settext(nex);
+    props.viewAlert("Converted to lowercase!","success");
   };
   const handleclearText = () => {
     // console.log("Uppercase was clicked")
     let nex = "";
     settext(nex);
+    props.viewAlert("Clear all text.","success");
   };
   const handlelowClick=()=>{
     let nexs=text.toLowerCase();
     settext(nexs)
+    props.viewAlert("Converted to lowercase!.","success");
   }
   const handleonchange = (event) => {
     console.log("on Change");
     settext(event.target.value);
+    // props.viewAlert("Converted to lowercase!.","success");
   };
   
   // Enable to dark mood 
@@ -35,6 +39,7 @@ export default function Text(props) {
     var text=document.getElementById('mybox');
     text.select();
     navigator.clipboard.writeText(text.value)
+    props.viewAlert("Copy text.","success");
   };
   
 // Remove Extra Space
@@ -42,6 +47,7 @@ export default function Text(props) {
 const handleExtraspace=()=>{
 let newText=text.split(/[ ]+/);
 settext(newText.join(" "))
+props.viewAlert("Rempve to extra Space.","success");
 };
 
 // dark mode toggle

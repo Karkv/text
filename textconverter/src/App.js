@@ -1,12 +1,13 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import TextForm from "./component/TextForm";
 import About from "./component/About";
 import React ,{useState} from "react";
 import NavBar from './component/NavBar'
 import Alert from "./component/Alert";
-
-
+// import Switch from "react-router-dom";
+import {BrowserRouter as Router, Route ,Switch } from "react-router-dom";
+// import { Switch, Route } from "react-router-dom";
 
 function App() {
 
@@ -47,12 +48,33 @@ const viewAlert=(message,type)=>{
    
   return (
     <>
+    <Router> 
         <NavBar  title="TExT" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert}/>
       <div className="container my-3 ">
+        {/* create router */}
+      <Switch>
+            
+             
+          <Router exact path="/about">
+            <About/>
+          </Router>
+          <Route exact path="/">
+            
         <TextForm heading="Convert text UpperCase" viewAlert={viewAlert}  mode={mode} toggleMode={toggleMode} title="Enter the text"/>
-      {/* <About/> */}
+          </Route>
+          
+        
+      </Switch>
       </div>
+        </Router>
+
+
+      {/* <About/> */}
+
+
+     
+  
     </>
   );
 }
